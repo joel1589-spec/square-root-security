@@ -321,6 +321,29 @@ footer {
 }
 
 /*
+ * Correction des services sur Mobile
+ * Nous allons passer la grille de services à deux colonnes sur les petits écrans.
+*/
+@media (max-width: 600px) { /* Cibler les téléphones spécifiquement */
+    .services-grid {
+        /*
+         * Utilise une grille de deux colonnes pour les très petits écrans.
+         * La taille de colonne '1fr' permet de diviser l'espace également.
+        */
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px; /* Espace entre les boîtes */
+        
+        /* Permet de balayer horizontalement si le contenu est trop large */
+        overflow-x: auto; 
+        padding-bottom: 10px; /* Marge pour le balayage */
+    }
+
+    /* Optionnel : Ajuster la taille des icônes pour qu'elles rentrent mieux */
+    .service-item i {
+        font-size: 2.5em; 
+    }
+}
+/*
     -------------------------------------------
     ICÔNES DE CONTACT RAPIDE (Ajout)
     -------------------------------------------
@@ -637,4 +660,5 @@ footer {
         margin-bottom: 30px;
     }
 }
+
 

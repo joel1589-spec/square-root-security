@@ -279,24 +279,30 @@ footer {
     -------------------------------------------
 */
 @media (max-width: 768px) {
-    
-    /* Header/Nav Mobile */
-    /* *** CORRECTION : Utilisation de l'ID #main-nav pour la spécificité *** */
+
+    /* Correction 1 : Cache l'icône du menu par défaut (vous devriez l'avoir) */
+    .menu-toggle {
+        display: block; 
+    }
+
+    /* Correction 2 : Assure que le menu est caché par défaut sur mobile. */
     #main-nav { 
+        display: none !important; /* Force la règle */
         position: absolute;
-        top: 70px; /* Hauteur de l'en-tête */
+        top: 70px; /* Assurez-vous que cette valeur correspond à la hauteur de votre header */
         left: 0;
         right: 0;
         background-color: var(--color-mid-bg);
         border-top: 1px solid var(--color-primary);
-        display: none; /* Cache le menu par défaut */
         flex-direction: column;
         text-align: center;
         padding: 20px 0;
+        /* Ajoutez d'autres styles si besoin */
     }
 
+    /* Correction 3 : Assure que le menu s'affiche quand la classe 'is-open' est ajoutée */
     #main-nav.is-open {
-        display: flex; /* Affiche le menu quand la classe is-open est active */
+        display: flex !important; /* Force l'affichage */
     }
 
     nav ul {
@@ -631,3 +637,4 @@ footer {
         margin-bottom: 30px;
     }
 }
+

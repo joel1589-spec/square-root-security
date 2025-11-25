@@ -343,6 +343,33 @@ footer {
         font-size: 2.5em; 
     }
 }
+
+@media (max-width: 600px) { 
+    
+    /* ... Vos règles précédentes pour le menu et autres ... */
+    
+    /* ************************************************************ */
+    /* CORRECTION GÉNÉRALE DES GRILLES SUR LA PAGE D'ACCUEIL */
+    /* ************************************************************ */
+    
+    /* Applique la disposition 2 colonnes à la grille de services (index.html) */
+    .service-grid,
+    /* Applique la disposition 2 colonnes à la grille des valeurs (index.html) */
+    .value-grid { 
+        grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+        gap: 20px; 
+        overflow-x: auto; 
+        padding-bottom: 10px; 
+    }
+    
+    /* Optionnel : Assurez-vous que les éléments de la grille ne prennent pas toute la largeur par défaut */
+    .service-item, .value-item {
+        /* Ceci aide si les éléments ont une largeur fixée ailleurs */
+        max-width: 100%; 
+    }
+
+    /* ... le reste de vos styles mobiles ... */
+}
 /*
     -------------------------------------------
     ICÔNES DE CONTACT RAPIDE (Ajout)
@@ -660,5 +687,6 @@ footer {
         margin-bottom: 30px;
     }
 }
+
 
 

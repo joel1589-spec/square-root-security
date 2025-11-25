@@ -551,10 +551,14 @@ footer {
     RESPONSIVE DESIGN (Mobile)
     -------------------------------------------
 */
+/*
+    -------------------------------------------
+    RESPONSIVE DESIGN (Mobile)
+    -------------------------------------------
+*/
 @media (max-width: 768px) {
     
     /* CORRECTION GLOBALE du DÉBORDEMENT */
-    /* Le body est déjà géré par overflow-x: hidden; */
     .container {
         width: 100%; /* Utilise 100% de la largeur du viewport */
         padding-left: 15px; /* Ajoute des marges latérales pour l'esthétique */
@@ -567,7 +571,6 @@ footer {
         display: block; /* Affiche l'icône du menu */
     }
     #main-nav {
-        /* Correction : Force le masquage et l'affichage avec !important */
         display: none !important; 
         position: absolute;
         top: 70px; 
@@ -580,7 +583,7 @@ footer {
         padding: 20px 0;
     }
     #main-nav.is-open {
-        display: flex !important; /* Force l'affichage au clic */
+        display: flex !important; 
     }
     nav ul {
         flex-direction: column;
@@ -597,26 +600,37 @@ footer {
     .hero { padding: 80px 0; }
     .section-padding { padding: 40px 0; }
     
-    /* GRILLES DE SERVICES ET VALEURS (index.html et services.html) */
+    /* ************************************************************ */
+    /* CORRECTION DE L'EMPILEMENT À UNE SEULE COLONNE (100%) */
+    /* ************************************************************ */
+    
+    /* 1. Force les conteneurs de grille à ne pas s'étirer horizontalement */
     .service-grid, 
     .value-grid {
-        /* CORRECTION: Change en GRID pour utiliser grid-template-columns */
-        display: grid; 
-        grid-template-columns: 1fr 1fr; /* 2 colonnes par défaut sur mobile */
-        gap: 15px; /* Réduit l'espace */
-    }
-
-    /* Permet le défilement horizontal si les boîtes sont trop larges pour l'écran */
-    .services-preview .container, 
-    .values-section .container {
-        overflow-x: auto;
-        padding-bottom: 10px;
+        display: flex; /* Retour à flex, plus simple pour 1 colonne */
+        flex-direction: column; /* Empilement forcé */
+        gap: 20px;
+        /* Annule le débordement horizontal que nous avons mis pour 2 colonnes */
+        overflow-x: visible; 
     }
     
-    /* Assure une largeur minimale aux blocs */
-    .service-item, .value-item {
-        min-width: 150px; 
+    /* 2. Force les éléments INDIVIDUELS à prendre toute la largeur */
+    .service-item, 
+    .value-item {
+        width: 100%; /* L'élément prend 100% de la largeur du conteneur */
+        max-width: 100%; /* S'assure qu'il ne dépasse pas */
+        min-width: unset; /* Annule la largeur minimale de 280px du desktop */
+        flex: unset; /* Annule la propriété flex: 1 */
+        margin-left: auto; /* Centrage */
+        margin-right: auto; /* Centrage */
         padding: 20px;
+    }
+
+    /* Les conteneurs des sections n'ont plus besoin d'overflow-x: auto */
+    .services-preview .container, 
+    .values-section .container {
+        overflow-x: visible;
+        padding-bottom: 15px;
     }
     
     /* FOOTER */
@@ -645,3 +659,4 @@ footer {
         width: 100%;
     }
 }
+

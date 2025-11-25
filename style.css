@@ -4,9 +4,9 @@
     -------------------------------------------
 */
 :root {
-    --color-primary: #00aaff;   /* Bleu Vif pour l'accentuation */
+    --color-primary: #00aaff;    /* Bleu Vif pour l'accentuation */
     --color-secondary: #0088cc; /* Bleu foncé pour le hover */
-    --color-dark-bg: #0d1a29;   /* Fond très foncé (Sécurité) */
+    --color-dark-bg: #0d1a29;    /* Fond très foncé (Sécurité) */
     --color-mid-bg: #1a2c3e;    /* Fond intermédiaire */
     --color-text-light: #e0e0e0;
     --font-family: 'Arial', sans-serif;
@@ -23,6 +23,8 @@ body {
     background-color: var(--color-dark-bg);
     color: var(--color-text-light);
     line-height: 1.6;
+    /* CORRECTION GLOBALE: Empêche le débordement horizontal de la page */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -205,6 +207,7 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .value-grid, .service-grid {
+    /* CORRECTION: Utilisation de Flexbox pour 3 éléments. Sera remplacé par Grid sur mobile. */
     display: flex;
     gap: 30px;
     justify-content: center;
@@ -272,123 +275,7 @@ footer {
     margin-right: 8px;
 }
 
-
-/*
-    -------------------------------------------
-    RESPONSIVE DESIGN (Mobile)
-    -------------------------------------------
-*/
-@media (max-width: 768px) {
-
-    /* Correction 1 : Cache l'icône du menu par défaut (vous devriez l'avoir) */
-    .menu-toggle {
-        display: block; 
-    }
-
-    /* Correction 2 : Assure que le menu est caché par défaut sur mobile. */
-    #main-nav { 
-        display: none !important; /* Force la règle */
-        position: absolute;
-        top: 70px; /* Assurez-vous que cette valeur correspond à la hauteur de votre header */
-        left: 0;
-        right: 0;
-        background-color: var(--color-mid-bg);
-        border-top: 1px solid var(--color-primary);
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        /* Ajoutez d'autres styles si besoin */
-    }
-
-    /* Correction 3 : Assure que le menu s'affiche quand la classe 'is-open' est ajoutée */
-    #main-nav.is-open {
-        display: flex !important; /* Force l'affichage */
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li a {
-        padding: 10px 0;
-        display: block;
-    }
-
-    .menu-toggle {
-        display: block; /* Affiché sur mobile */
-    }
-    /* ... Reste du bloc @media ... */
-}
-
-/*
- * Correction des services sur Mobile
- * Nous allons passer la grille de services à deux colonnes sur les petits écrans.
-*/
-@media (max-width: 600px) { /* Cibler les téléphones spécifiquement */
-    .services-grid {
-        /*
-         * Utilise une grille de deux colonnes pour les très petits écrans.
-         * La taille de colonne '1fr' permet de diviser l'espace également.
-        */
-        grid-template-columns: 1fr 1fr; 
-        gap: 20px; /* Espace entre les boîtes */
-        
-        /* Permet de balayer horizontalement si le contenu est trop large */
-        overflow-x: auto; 
-        padding-bottom: 10px; /* Marge pour le balayage */
-    }
-
-    /* Optionnel : Ajuster la taille des icônes pour qu'elles rentrent mieux */
-    .service-item i {
-        font-size: 2.5em; 
-    }
-}
-
-@media (max-width: 600px) { 
-    
-    /* ... Vos règles précédentes ... */
-    
-    /* ************************************************************ */
-    /* CORRECTION GÉNÉRALE DES GRILLES SUR LA PAGE D'ACCUEIL */
-    /* ************************************************************ */
-    
-    /* 1. Force la mise en page à deux colonnes */
-    .service-grid,
-    .value-grid { 
-        /* Deux colonnes égales */
-        grid-template-columns: 1fr 1fr; 
-        gap: 20px; 
-    }
-    
-    /* 2. Assure que le conteneur peut défiler si le contenu est trop large */
-    /* On cible la section qui contient la grille */
-    .services-preview, 
-    .values-section {
-        /* Permet un débordement horizontal pour le balayage si les colonnes sont serrées */
-        overflow-x: auto; 
-        /* Cache tout ce qui déborde verticalement */
-        overflow-y: hidden;
-        /* Ajoute une marge pour l'esthétique du balayage */
-        padding-bottom: 20px; 
-    }
-
-    /* 3. Assure que les éléments individuels s'ajustent correctement dans leur colonne */
-    .service-item, .value-item {
-        /* Empêche les éléments de forcer une largeur qui briserait la grille */
-        width: 100%; 
-        min-width: 150px; /* Assure une largeur minimale raisonnable pour chaque bloc */
-    }
-
-    /* ... le reste de vos styles mobiles ... */
-}
-
-    /* ... le reste de vos styles mobiles ... */
-}
-/*
-    -------------------------------------------
-    ICÔNES DE CONTACT RAPIDE (Ajout)
-    -------------------------------------------
-*/
+/* ICÔNES DE CONTACT RAPIDE */
 .social-links {
     margin-top: 15px;
     padding-top: 15px;
@@ -396,16 +283,10 @@ footer {
     text-align: center;
 }
 
-
-/* NOUVEAU BLOC DANS style.css */
 .social-links a {
-    /* La couleur de base est plus claire pour être visible avant le hover */
-    color: var(--color-text-light); 
-    font-size: 1.8em; 
-    
-    /* AJOUT CRITIQUE : Marge horizontale pour séparer les icônes */
-    margin: 0 15px; 
-    
+    color: var(--color-text-light);
+    font-size: 1.8em;
+    margin: 0 15px;
     transition: color 0.3s;
 }
 
@@ -413,25 +294,14 @@ footer {
     color: var(--color-primary); 
 }
 
-.social-links a:hover {
-    color: var(--color-primary); /* Accentuation au survol */
-}
-
-/* Styles spécifiques pour les couleurs des icônes (optionnel) */
 .social-links .fa-whatsapp:hover { color: #25d366; }
 .social-links .fa-telegram:hover { color: #0088cc; }
 .social-links .fa-facebook:hover { color: #1877f2; }
 
-
-/* AJOUT DANS style.css */
 .social-links p {
     font-size: 1.1em;
-    /* Marge en bas pour séparer le texte des icônes */
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
-
-
-
 
 /*
     -------------------------------------------
@@ -491,8 +361,7 @@ footer {
     opacity: 0.8;
 }
 
-
-/* Responsive pour la page Contact */
+/* Responsive pour la page Contact (déjà correct) */
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr; /* Une colonne sur mobile */
@@ -520,7 +389,7 @@ footer {
     font-size: 3em;
     color: var(--color-primary);
     margin-right: 25px;
-    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+    flex-shrink: 0; 
 }
 
 .case-content h3 {
@@ -535,25 +404,11 @@ footer {
     font-style: italic;
 }
 
-/* Style spécifique pour le bouton secondaire dans le portfolio */
 .small-button {
     padding: 8px 15px;
     font-size: 0.9em;
     margin-top: 15px;
     display: inline-block;
-}
-
-/* Responsive pour le Portfolio */
-@media (max-width: 768px) {
-    .case-study-item {
-        flex-direction: column; /* Icone au-dessus du texte sur mobile */
-    }
-    .case-icon {
-        margin-right: 0;
-        margin-bottom: 15px;
-        text-align: center;
-        width: 100%;
-    }
 }
 
 /*
@@ -615,7 +470,6 @@ footer {
     margin-bottom: 5px;
 }
 
-/* Ajout d'une puce personnalisée pour les listes de services */
 .service-detail-item ul li::before {
     content: "•";
     color: var(--color-secondary);
@@ -647,7 +501,7 @@ footer {
     max-width: 300px; /* Taille maximale pour l'image */
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 170, 255, 0.4); /* Ombre légère de la couleur primaire */
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.4); 
 }
 
 .intro-text-pro {
@@ -676,7 +530,7 @@ footer {
 }
 
 .value-item-pro:hover {
-    background-color: #253a52; /* Une nuance légèrement plus claire */
+    background-color: #253a52; 
 }
 
 .value-item-pro i {
@@ -691,17 +545,103 @@ footer {
     margin-bottom: 10px;
 }
 
+
+/*
+    -------------------------------------------
+    RESPONSIVE DESIGN (Mobile)
+    -------------------------------------------
+*/
 @media (max-width: 768px) {
+    
+    /* CORRECTION GLOBALE du DÉBORDEMENT */
+    /* Le body est déjà géré par overflow-x: hidden; */
+    .container {
+        width: 100%; /* Utilise 100% de la largeur du viewport */
+        padding-left: 15px; /* Ajoute des marges latérales pour l'esthétique */
+        padding-right: 15px;
+        margin: 0 auto;
+    }
+
+    /* HEADER / MENU FIX (Menu Hamburger) */
+    .menu-toggle {
+        display: block; /* Affiche l'icône du menu */
+    }
+    #main-nav {
+        /* Correction : Force le masquage et l'affichage avec !important */
+        display: none !important; 
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        right: 0;
+        background-color: var(--color-mid-bg);
+        border-top: 1px solid var(--color-primary);
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+    #main-nav.is-open {
+        display: flex !important; /* Force l'affichage au clic */
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li a {
+        padding: 10px 0;
+        display: block;
+    }
+
+    /* TYPOGRAPHIE ET ESPACEMENT */
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.8em; margin-bottom: 30px; }
+    .hero { padding: 80px 0; }
+    .section-padding { padding: 40px 0; }
+    
+    /* GRILLES DE SERVICES ET VALEURS (index.html et services.html) */
+    .service-grid, 
+    .value-grid {
+        /* CORRECTION: Change en GRID pour utiliser grid-template-columns */
+        display: grid; 
+        grid-template-columns: 1fr 1fr; /* 2 colonnes par défaut sur mobile */
+        gap: 15px; /* Réduit l'espace */
+    }
+
+    /* Permet le défilement horizontal si les boîtes sont trop larges pour l'écran */
+    .services-preview .container, 
+    .values-section .container {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    /* Assure une largeur minimale aux blocs */
+    .service-item, .value-item {
+        min-width: 150px; 
+        padding: 20px;
+    }
+    
+    /* FOOTER */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-info {
+        margin-top: 15px;
+    }
+
+    /* PAGE À PROPOS */
     .about-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    .profile-image {
-        max-width: 250px;
-        margin-bottom: 30px;
+    
+    /* PAGE PORTFOLIO */
+    .case-study-item {
+        flex-direction: column; 
+    }
+    .case-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
     }
 }
-
-
-
-

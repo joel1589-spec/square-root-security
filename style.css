@@ -346,27 +346,41 @@ footer {
 
 @media (max-width: 600px) { 
     
-    /* ... Vos règles précédentes pour le menu et autres ... */
+    /* ... Vos règles précédentes ... */
     
     /* ************************************************************ */
     /* CORRECTION GÉNÉRALE DES GRILLES SUR LA PAGE D'ACCUEIL */
     /* ************************************************************ */
     
-    /* Applique la disposition 2 colonnes à la grille de services (index.html) */
+    /* 1. Force la mise en page à deux colonnes */
     .service-grid,
-    /* Applique la disposition 2 colonnes à la grille des valeurs (index.html) */
     .value-grid { 
-        grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+        /* Deux colonnes égales */
+        grid-template-columns: 1fr 1fr; 
         gap: 20px; 
-        overflow-x: auto; 
-        padding-bottom: 10px; 
     }
     
-    /* Optionnel : Assurez-vous que les éléments de la grille ne prennent pas toute la largeur par défaut */
-    .service-item, .value-item {
-        /* Ceci aide si les éléments ont une largeur fixée ailleurs */
-        max-width: 100%; 
+    /* 2. Assure que le conteneur peut défiler si le contenu est trop large */
+    /* On cible la section qui contient la grille */
+    .services-preview, 
+    .values-section {
+        /* Permet un débordement horizontal pour le balayage si les colonnes sont serrées */
+        overflow-x: auto; 
+        /* Cache tout ce qui déborde verticalement */
+        overflow-y: hidden;
+        /* Ajoute une marge pour l'esthétique du balayage */
+        padding-bottom: 20px; 
     }
+
+    /* 3. Assure que les éléments individuels s'ajustent correctement dans leur colonne */
+    .service-item, .value-item {
+        /* Empêche les éléments de forcer une largeur qui briserait la grille */
+        width: 100%; 
+        min-width: 150px; /* Assure une largeur minimale raisonnable pour chaque bloc */
+    }
+
+    /* ... le reste de vos styles mobiles ... */
+}
 
     /* ... le reste de vos styles mobiles ... */
 }
@@ -687,6 +701,7 @@ footer {
         margin-bottom: 30px;
     }
 }
+
 
 
 

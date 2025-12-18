@@ -3,141 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Square Root Security - Protecting what matters most</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Square Root Security | Protecting what matters most</title>
+
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo_joel.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo-link">
-                <img src="logo_joel.png" alt="Logo Square Root Security" class="logo">
-                <span class="site-name">SQUARE ROOT SECURITY</span>
-            </a>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="about.html">À Propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <div class="container header-container">
 
-    <section class="hero">
-        <div class="container">
-            <h1>SQUARE ROOT SECURITY</h1>
-            <h2>Protecting what matters most.</h2>
-            <p>Dans un monde numérique en constante évolution, la <b>SECURITE</b> et la <b>PERFORMANCE</b> de vos outils informatiques ne doivent jamais être laissées au hasard. Square Root Security est votre partenaire de confiance, dédié à maintenir vos systèmes opérationnels, sécurisés et performants.</p>
-            <a href="contact.html" class="cta-button">Demander une Consultation Gratuite</a>
-        </div>
-    </section>
-
-    <section class="services-preview section-padding">
-        <div class="container">
-            <h3>Nos Compétences Clés</h3>
-            <div class="service-grid">
-                <div class="service-item">
-                    <i class="fas fa-sync-alt icon-large"></i>
-                    <h4>Optimisation des Systèmes</h4>
-                    <p>Installation, mise à jour et mise à niveau de tous vos OS (Windows, macOS, Linux) pour une performance maximale.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-screwdriver-wrench icon-large"></i>
-                    <h4>Maintenance Essentielle</h4>
-                    <p>Formatage professionnel de PC et téléphones, incluant la sauvegarde/restauration de données si nécessaire.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-user-lock icon-large"></i>
-                    <h4>Récupération Sécurisée</h4>
-                    <p>Retrouvez l'accès à vos comptes perdus (Gmail, Facebook, et plus) en toute confidentialité et légalité.</p>
-                </div>
+        <a href="index.html" class="brand">
+            <div class="brand-logo">
+                <img src="logo_joel.png" alt="Square Root Security Logo">
             </div>
-            <a href="services.html" class="secondary-button">Voir Tous les Services</a>
-        </div>
-    </section>
-
-    <section class="values-section section-padding">
-        <div class="container">
-            <h3>Pourquoi Choisir Square Root Security ?</h3>
-            <div class="value-grid">
-                <div class="value-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Sécurité Prioritaire</h4>
-                    <p>Protection de vos données et de votre vie privée au centre de chaque intervention.</p>
-                </div>
-                <div class="value-item">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Réactivité Garantie</h4>
-                    <p>Intervention rapide pour diagnostiquer et résoudre vos problèmes informatiques.</p>
-                </div>
-                <div class="value-item">
-                    <i class="fas fa-check-circle"></i>
-                    <!-- <h4>Expertise Certifiée</h4> -->
-                    <p>Solutions durables et conformes aux meilleures pratiques du secteur informatique.</p>
-                </div>
+            <div class="brand-text">
+                <span class="brand-name">Square Root Security</span>
+                <span class="brand-tagline">Protecting what matters most</span>
             </div>
-        </div>
-    </section>
-    
-    <section class="cta-consultation">
-        <div class="container">
-            <p>Prêt à sécuriser votre système ou avez-vous une question urgente ?</p>
-            <a href="contact.html" class="cta-button">Planifier votre Consultation</a>
-        </div>
-    </section>
+        </a>
 
-    <!-- <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 SQUARE ROOT SECURITY. Tous droits réservés.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> contact@racinecarreesecurity.com</p>
-                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                </div>
-            </div>
-        </div>
-    </footer> -->
+        <nav class="main-nav" id="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
 
-    <footer>
+        <button class="menu-toggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <div class="hero-logo">
+            <img src="logo_joel.png" alt="Square Root Security">
+        </div>
+
+        <h1>Square Root Security</h1>
+        <h2>Protecting what matters most</h2>
+
+        <p>
+            Nous sécurisons vos systèmes, vos données et votre activité
+            face aux menaces numériques modernes grâce à des solutions
+            fiables, performantes et conformes aux standards de la cybersécurité.
+        </p>
+
+        <div class="hero-actions">
+            <a href="contact.html" class="cta-button">Consultation gratuite</a>
+            <a href="services.html" class="secondary-button">Nos services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services section-padding">
     <div class="container">
-        <div class="footer-content">
-            <p>&copy; 2025 SQUARE ROOT SECURITY. Tous droits réservés.</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> square.rootsec1@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +228 71276330 / 99424087</p>
+        <h3>Nos compétences clés</h3>
+
+        <div class="service-grid">
+            <div class="service-item">
+                <i class="fas fa-shield-halved icon-animated icon-pulse"></i>
+                <h4>Sécurité des systèmes</h4>
+                <p>Protection proactive de vos infrastructures et données critiques.</p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-network-wired icon-animated icon-float"></i>
+                <h4>Monitoring & supervision</h4>
+                <p>Surveillance continue pour anticiper incidents et attaques.</p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-user-shield icon-animated icon-glow"></i>
+                <h4>Gestion des accès</h4>
+                <p>Sécurisation des comptes, identités et privilèges sensibles.</p>
             </div>
         </div>
-        
-        <div class="social-links">
-            <p>Contactez-nous directement :</p>
-            <a href="https://wa.me/99424087" target="_blank" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            
-            <a href="https://t.me/99424087" target="_blank" aria-label="Telegram">
-                <i class="fab fa-telegram"></i>
-            </a>
+    </div>
+</section>
 
-            <a href="https://m.me/Joël Kpeto" target="_blank" aria-label="Facebook Messenger">
-                <i class="fab fa-facebook-messenger"></i>
-            </a>
-            
-            <a href="https://www.facebook.com/profile.php?id=61551734707373" target="_blank" aria-label="Page Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
+<footer>
+    <div class="container footer-content">
+        <p>© 2025 Square Root Security — Tous droits réservés</p>
     </div>
 </footer>
 
-    <script src="script.js"></script>
 </body>
-
 </html>
